@@ -35,8 +35,6 @@ let ENV = {
 }}
 ```
 
-`{{paypal-button}}` has a CSS class of `.paypal-button` for your customization.
-
 This comes with a test helper to mock the paypal window object.
 
 ```js
