@@ -1,6 +1,6 @@
 {
   "name": "ember-paypal-button",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Ember wrapper for the PayPal button",
   "keywords": [
     "ember-addon"
