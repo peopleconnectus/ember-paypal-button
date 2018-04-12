@@ -8,8 +8,6 @@ const {
 } = config['paypal-button'];
 
 export default Component.extend({
-  classNames: 'paypal-button',
-
   didReceiveAttrs() {
     this._super(...arguments);
 
