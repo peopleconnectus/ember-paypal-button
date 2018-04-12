@@ -50,7 +50,7 @@ mock({
   window,
 
   // optional render callback
-  renderCallback
+  render
 });
 
 reset({

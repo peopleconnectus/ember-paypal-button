@@ -1,16 +1,16 @@
 export default function mock({
-  window,
-  renderCallback = () => {}
+  window = window,
+  render = () => {}
 } = {}) {
   window.paypal = {
     Button: {
-      render: renderCallback
+      render
     }
   };
 }
 
 export function reset({
-  window
+  window = window
 }) {
   delete window.paypal;
 }
