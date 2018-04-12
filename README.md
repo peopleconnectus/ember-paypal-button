@@ -2,6 +2,7 @@ ember-paypal-button
 ==============================================================================
 
 [![npm version](https://badge.fury.io/js/ember-paypal-button.svg)](https://badge.fury.io/js/ember-paypal-button)
+[![Build Status](https://travis-ci.org/peopleconnectus/ember-paypal-button.svg?branch=master)](https://travis-ci.org/peopleconnectus/ember-paypal-button)
 
 Ember wrapper for the PayPal button
 
