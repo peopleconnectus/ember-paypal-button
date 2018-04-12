@@ -1,7 +1,11 @@
 ember-paypal-button
 ==============================================================================
 
-[Short description of the addon.]
+[![npm version](https://badge.fury.io/js/ember-paypal-button.svg)](https://badge.fury.io/js/ember-paypal-button)
+
+Ember wrapper for the PayPal button
+
+https://developer.paypal.com/docs/integration/direct/express-checkout/integration-jsv4/server-side-REST-integration/
 
 Installation
 ------------------------------------------------------------------------------
@@ -14,7 +18,47 @@ ember install ember-paypal-button
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+```js
+let ENV = {
+  'paypal-button': {
+    env: 'your custom paypal environment'
+  }
+};
+```
+
+```hbs
+{{paypal-button
+  isEnabled=isEnabled
+  payment=(action payment)
+  onAuthorize=(action onAuthorize)
+}}
+```
+
+`{{paypal-button}}` has a CSS class of `.paypal-button` for your customization.
+
+This comes with a test helper to mock the paypal window object.
+
+```js
+import mock, { reset } from 'ember-paypal-button/test-support/mock';
+
+mock();
+reset();
+
+// or
+
+mock({
+  // optional custom window mock
+  window,
+
+  // optional render callback
+  renderCallback
+});
+
+reset({
+  // optional custom window mock
+  window
+})
+```
 
 
 Contributing
