@@ -9,7 +9,8 @@ module.exports = {
   ],
   extends: [
     'eslint:recommended',
-    'plugin:ember/recommended'
+    'plugin:ember/recommended',
+    'peopleconnect-ember'
   ],
   env: {
     browser: true
@@ -44,6 +45,13 @@ module.exports = {
       rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
         // add your custom rules and overrides for node files here
       })
+    },
+
+    {
+      files: ['testem.js'],
+      rules: {
+        camelcase: 0
+      }
     }
   ]
 };
