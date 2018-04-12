@@ -19,7 +19,7 @@ module('Integration | Component | paypal-button', function(hooks) {
 
     mock({
       window,
-      renderCallback: renderSpy = sinon.spy()
+      render: renderSpy = sinon.spy()
     });
 
     this.set('isEnabled', true);
