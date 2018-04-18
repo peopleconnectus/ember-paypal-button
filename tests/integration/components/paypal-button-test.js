@@ -29,7 +29,7 @@ module('Integration | Component | paypal-button', function(hooks) {
     reset(window);
   });
 
-  setupRender(hooks, {
+  let render = setupRender(hooks, {
     beforeRender() {
       this.setProperties({
         payment: paymentStub,
@@ -47,13 +47,13 @@ module('Integration | Component | paypal-button', function(hooks) {
   });
 
   test('it calls render on paypal global', async function(assert) {
-    await this.render();
+    await render();
 
     assert.ok(renderSpy.calledOnce);
   });
 
   test('it calls enable on actions when validate callback is called and is enabled', async function(assert) {
-    await this.render();
+    await render();
 
     let { validate } = renderSpy.firstCall.args[0];
 
@@ -72,7 +72,7 @@ module('Integration | Component | paypal-button', function(hooks) {
   test('it calls disabled on actions when validate callback is called and is disabled', async function(assert) {
     this.set('isEnabled', false);
 
-    await this.render();
+    await render();
 
     let { validate } = renderSpy.firstCall.args[0];
 
@@ -89,7 +89,7 @@ module('Integration | Component | paypal-button', function(hooks) {
   });
 
   test('it calls payment action when payment callback is called', async function(assert) {
-    await this.render();
+    await render();
 
     let { payment } = renderSpy.firstCall.args[0];
 
@@ -101,7 +101,7 @@ module('Integration | Component | paypal-button', function(hooks) {
   });
 
   test('it calls onAuthorize action when onAuthorize callback is called', async function(assert) {
-    await this.render();
+    await render();
 
     let { onAuthorize } = renderSpy.firstCall.args[0];
 
@@ -116,11 +116,11 @@ module('Integration | Component | paypal-button', function(hooks) {
     assert.expect(0);
     window.paypal = null;
 
-    await this.render();
+    await render();
   });
 
   test('it calls PayPal API to set button state when isEnabled changes', async function(assert) {
-    await this.render();
+    await render();
 
     let { validate } = renderSpy.firstCall.args[0];
 
@@ -154,7 +154,7 @@ module('Integration | Component | paypal-button', function(hooks) {
 
     window.paypal = null;
 
-    await this.render();
+    await render();
 
     this.set('isEnabled', false);
   });
@@ -162,7 +162,7 @@ module('Integration | Component | paypal-button', function(hooks) {
   test('it does not throw if PayPal actions object is not present', async function(assert) {
     assert.expect(0);
 
-    await this.render();
+    await render();
 
     this.set('isEnabled', false);
   });
