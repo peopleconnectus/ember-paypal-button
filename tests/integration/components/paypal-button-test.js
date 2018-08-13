@@ -12,10 +12,14 @@ module('Integration | Component | paypal-button', function(hooks) {
   let renderSpy;
   let paymentStub;
   let onAuthorizeStub;
+  let onCancelStub;
+  let onErrorStub;
 
   hooks.beforeEach(function() {
     paymentStub = sinon.stub().returns('payment response');
     onAuthorizeStub = sinon.stub().returns('onAuthorize response');
+    onCancelStub = sinon.stub().returns('onCancel response');
+    onErrorStub = sinon.stub().returns('onError response');
 
     mock({
       window,
@@ -33,7 +37,9 @@ module('Integration | Component | paypal-button', function(hooks) {
     beforeRender() {
       this.setProperties({
         payment: paymentStub,
-        onAuthorize: onAuthorizeStub
+        onAuthorize: onAuthorizeStub,
+        onCancel: onCancelStub,
+        onError: onErrorStub
       });
     },
     template: hbs`
@@ -42,6 +48,8 @@ module('Integration | Component | paypal-button', function(hooks) {
         class=(if isCreditTabActive "hide")
         payment=(action payment)
         onAuthorize=(action onAuthorize)
+        onCancel=(action onCancel)
+        onError=(action onError)
       }}
     `
   });
@@ -111,6 +119,31 @@ module('Integration | Component | paypal-button', function(hooks) {
 
     assert.equal(response, 'onAuthorize response');
   });
+
+  test('it calls onCancel action when onCancel callback is called', async function(assert) {
+    await render();
+
+    let { onCancel } = renderSpy.firstCall.args[0];
+
+    let response = onCancel();
+
+    assert.ok(onCancelStub.calledOnce);
+
+    assert.equal(response, 'onCancel response');
+  });
+
+  test('it calls onError action when onError callback is called', async function(assert) {
+    await render();
+
+    let { onError } = renderSpy.firstCall.args[0];
+
+    let response = onError();
+
+    assert.ok(onErrorStub.calledOnce);
+
+    assert.equal(response, 'onError response');
+  });
+
 
   test('it does not error if the paypal script does not load', async function(assert) {
     assert.expect(0);

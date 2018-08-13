@@ -54,9 +54,21 @@ export default Component.extend({
         });
       },
 
-      onAuthorize: () => { // (data, actions)
+      onAuthorize: (data, actions) => {
         return run(() => {
-          return this.get('onAuthorize')();
+          return this.get('onAuthorize')(data, actions);
+        });
+      },
+
+      onCancel: (data, actions) => {
+        return run(() => {
+          return this.get('onCancel')(data, actions);
+        });
+      },
+
+      onError: (error) => {
+        return run(() => {
+          return this.get('onError')(error);
         });
       }
     }, this.elementId);

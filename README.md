@@ -32,6 +32,8 @@ let ENV = {
   isEnabled=isEnabled
   payment=(action payment)
   onAuthorize=(action onAuthorize)
+  onCancel=(action onCancel)
+  onError=(action onError)
 }}
 ```
 
