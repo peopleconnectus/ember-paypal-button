@@ -45,7 +45,7 @@
     "ember-source": "~3.4.0",
     "ember-source-channel-url": "^1.0.1",
     "ember-test-setup": "^2.0.0",
-    "ember-try": "^0.2.23",
+    "ember-try": "^1.0.0",
     "eslint-config-peopleconnect": "^2.0.1",
     "eslint-config-peopleconnect-ember": "^5.0.0",
     "eslint-config-sane": "^0.6.0",
