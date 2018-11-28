@@ -22,11 +22,13 @@ export default Component.extend({
   didInsertElement() {
     this._super(...arguments);
 
-    try {
-      this.renderPaypal();
-    } catch (error) {
-      // Paypal script did not load or errored on render
-    }
+    run.scheduleOnce('afterRender', () => {
+      try {
+        this.renderPaypal();
+      } catch (error) {
+        // Paypal script did not load or errored on render
+      }
+    });
   },
 
   renderPaypal() {
