@@ -54,7 +54,7 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-prefer-let": "^1.0.1",
     "loader.js": "^4.2.3",
-    "renovate-config-standard": "^1.0.0"
+    "renovate-config-standard": "^2.0.0"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
