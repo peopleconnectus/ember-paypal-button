@@ -49,7 +49,7 @@
     "eslint-config-peopleconnect": "^2.0.1",
     "eslint-config-peopleconnect-ember": "^5.0.0",
     "eslint-config-sane": "^0.6.0",
-    "eslint-plugin-ember": "^5.0.0",
+    "eslint-plugin-ember": "^10.0.0",
     "eslint-plugin-hbs": "^0.1.1",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-prefer-let": "^1.0.1",
