@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "ember-cli-babel": "^6.6.0",
-    "ember-window-mock": "^0.4.0"
+    "ember-window-mock": "^0.8.0"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^3.0.0",
